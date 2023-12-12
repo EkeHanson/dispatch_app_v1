@@ -2,6 +2,7 @@ from pathlib import Path
 from datetime import timedelta
 import pymysql
 import os
+import dj_database_url
 
 pymysql.install_as_MySQLdb()
 
@@ -98,14 +99,14 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
-
+DATABASES['default'] = dj_database_url.parse('postgres://dispatch_app_v1_wqb9_user:YIWSSgt8tgIR9UzKVIm8d6WkAAhyuoK3@dpg-cls2isvqd2ns73dv0b40-a.oregon-postgres.render.com/dispatch_app_v1_wqb9')
 
 # DATABASES = {
 #     'default': {
@@ -118,16 +119,16 @@ WSGI_APPLICATION = 'main.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dispatch_app_v1',  # Replace with your PostgreSQL database name
-        'USER': 'dispatch_app_v1_user',  # Replace with your PostgreSQL username
-        'PASSWORD': 'oPfPRsy8WtPYEfFSTjMTAF3f1ZImM93M',  # Replace with your PostgreSQL password
-        'HOST': 'dpg-clpppo3d3o9c73ev5mp0-a.oregon-postgres.render.com',  # Use the provided PostgreSQL host from Render
-        'PORT': '5432',  # Use the provided PostgreSQL port from Render
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'dispatch_app_v1',  # Replace with your PostgreSQL database name
+#         'USER': 'dispatch_app_v1_user',  # Replace with your PostgreSQL username
+#         'PASSWORD': 'oPfPRsy8WtPYEfFSTjMTAF3f1ZImM93M',  # Replace with your PostgreSQL password
+#         'HOST': 'dpg-clpppo3d3o9c73ev5mp0-a.oregon-postgres.render.com',  # Use the provided PostgreSQL host from Render
+#         'PORT': '5432',  # Use the provided PostgreSQL port from Render
+#     }
+# }
 
 
 

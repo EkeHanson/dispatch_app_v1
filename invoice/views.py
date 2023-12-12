@@ -21,6 +21,7 @@ class InvoiceCreateAPIView(APIView):
     #permission_classes = [permissions.IsAdminUser]  # Only admins can create Riders
     def post(self, request):
         serializer = InvoiceSerializer(data=request.data)
+        print(request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_202_ACCEPTED)

@@ -10,6 +10,3 @@ class EstablishmentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Establishment
         fields = '__all__'
-        # fields = ['name', 'contact_person','rider', 'rider_address', 'phone_number','rider_Phone_number',
-        #           'order_number', 'reserved_quantity', 'amount_returned_by_customer', 'quantity_sold',
-        #           'amount_charged', 'gift_or_discount']
