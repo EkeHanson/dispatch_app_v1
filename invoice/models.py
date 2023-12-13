@@ -5,8 +5,9 @@ from django.db import models
 class Invoice(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     series = models.CharField(max_length=255)
-    quantity_delivered = models.CharField(max_length=255)
-    amount_paid = models.CharField(max_length=255)
+
+    quantity_delivered = models.IntegerField()
+    amount_paid = models.FloatField(max_length=255)
     balance = models.FloatField(max_length=255)
     discount = models.FloatField(max_length=255)
     # Choices for the confirmed field
