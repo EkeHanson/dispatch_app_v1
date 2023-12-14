@@ -15,12 +15,12 @@ class Order(models.Model):
     gift_or_discount = models.FloatField(max_length=255)
 
     created = models.DateTimeField(auto_now_add=True)
-    series = models.CharField(max_length=255)
+    series = models.CharField(max_length=255, null=True)
 
-    quantity_delivered = models.IntegerField()
-    amount_paid = models.FloatField(max_length=255)
-    balance = models.FloatField(max_length=255)
-    discount = models.FloatField(max_length=255)
+    quantity_delivered = models.IntegerField(null=True)
+    amount_paid = models.FloatField(max_length=255, null=True)
+    balance = models.FloatField(max_length=255, null=True)
+    discount = models.FloatField(max_length=255, null=True)
     confirmed = models.BooleanField(default=False)
 
     def __str__(self):

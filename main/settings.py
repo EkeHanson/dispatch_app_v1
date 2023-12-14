@@ -105,7 +105,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://distachapp_db_1_user:OzFXfn0JXkisUZiliGlk92m6NFHv1hHj@dpg-clt8eqa1hbls73ebh1t0-a.oregon-postgres.render.com/distachapp_db_1')
+# DATABASES['default'] = dj_database_url.parse('postgres://dispatch_app_v1_wplc_user:g7uziq2TCI4dtSZFyxdTwTcT7lI0WR7m@dpg-cltias8l5elc73dppi00-a.oregon-postgres.render.com/dispatch_app_v1_wplc')
 
 # DATABASES = {
 #     'default': {

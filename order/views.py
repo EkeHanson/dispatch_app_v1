@@ -8,12 +8,33 @@ from .models import Order
 from .serializers import OrderSerializer
 from rest_framework import generics
 
+
+from rest_framework import generics
+from rest_framework import status
+from rest_framework.response import Response
+from .models import Order
+from .serializers import OrderSerializer
+
+class OrderByOrderNumberAPIView(generics.RetrieveAPIView):
+    serializer_class = OrderSerializer
+
+    def get(self, request, order_number, *args, **kwargs):
+        try:
+            order = Order.objects.get(order_number=order_number)
+            serializer = self.serializer_class(order)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Order.DoesNotExist:
+            return Response({"message": "Order does not exist"}, status=status.HTTP_404_NOT_FOUND)
+
+
 class OrderListByEstablishmentAPIView(generics.ListAPIView):
     serializer_class = OrderSerializer
 
     def get_queryset(self):
         establishment_id = self.kwargs['establishment_id']
         return Order.objects.filter(establishment_id=establishment_id)
+
+
 
 class OrderListAPIView(APIView):
    # permission_classes = [permissions.IsAuthenticated]  # Restrict access to authenticated users
@@ -28,6 +49,7 @@ class OrderCreateAPIView(APIView):
     #permission_classes = [permissions.IsAdminUser]  # Only admins can create Riders
     def post(self, request):
         serializer = OrderSerializer(data=request.data)
+        print(request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
