@@ -6,7 +6,14 @@ from rest_framework.request import Request
 from rest_framework import status, permissions
 from .models import Order
 from .serializers import OrderSerializer
+from rest_framework import generics
 
+class OrderListByEstablishmentAPIView(generics.ListAPIView):
+    serializer_class = OrderSerializer
+
+    def get_queryset(self):
+        establishment_id = self.kwargs['establishment_id']
+        return Order.objects.filter(establishment_id=establishment_id)
 
 class OrderListAPIView(APIView):
    # permission_classes = [permissions.IsAuthenticated]  # Restrict access to authenticated users

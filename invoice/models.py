@@ -11,10 +11,10 @@ class Invoice(models.Model):
     balance = models.FloatField(max_length=255)
     discount = models.FloatField(max_length=255)
     # Choices for the confirmed field
-    CONFIRMED = 'confirmed'
-    PENDING = 'pending'
+    CONFIRMED = 'Approved'
+    PENDING = 'Pending'
     CONFIRMATION_CHOICES = [
-        (CONFIRMED, 'Confirmed'),
+        (CONFIRMED, 'Approved'),
         (PENDING, 'Pending'),
     ]
     

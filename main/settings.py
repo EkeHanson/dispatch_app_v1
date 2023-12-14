@@ -19,8 +19,7 @@ SECRET_KEY = 'django-insecure-g8#c8oz9=ust#pn2jq(05*(9-zntcmft0he&)3o*gs-a*-jgpu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','distachapp.onrender.com', '5d12-102-90-42-74.ngrok-free.app', '5d12-102-90-42-74.ngrok-free.app',
-                 'postgres://dispatch_app_v1_user:oPfPRsy8WtPYEfFSTjMTAF3f1ZImM93M@dpg-clpppo3d3o9c73ev5mp0-a.oregon-postgres.render.com/dispatch_app_v1']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','distachapp.onrender.com', 'dispatch-app-react-v1-ekehanson.vercel.app']
 
 
 # Application definition
@@ -106,7 +105,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://dispatch_app_v1_ce7g_user:5bIDWZipFcPY0JmFaqHSQ91FfF4eStZM@dpg-clsohej8d1es73bauukg-a.oregon-postgres.render.com/dispatch_app_v1_ce7g')
+DATABASES['default'] = dj_database_url.parse('postgres://distachapp_db_1_user:OzFXfn0JXkisUZiliGlk92m6NFHv1hHj@dpg-clt8eqa1hbls73ebh1t0-a.oregon-postgres.render.com/distachapp_db_1')
 
 # DATABASES = {
 #     'default': {
@@ -140,7 +139,7 @@ SIMPLE_JWT = {
    
     "SIGNING_KEY": SECRET_KEY,
     "AUTH_HEADER_TYPES": ("Bearer",),
-}
+}   
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
