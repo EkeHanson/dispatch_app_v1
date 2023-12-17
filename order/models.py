@@ -15,13 +15,13 @@ class Order(models.Model):
     gift_or_discount = models.FloatField(max_length=255)
 
     created = models.DateTimeField(auto_now_add=True)
-    series = models.CharField(max_length=255, null=True)
+    # series = models.CharField(max_length=255, null=True)
 
-    quantity_delivered = models.IntegerField(null=True)
-    amount_paid = models.FloatField(max_length=255, null=True)
-    balance = models.FloatField(max_length=255, null=True)
-    discount = models.FloatField(max_length=255, null=True)
-    confirmed = models.BooleanField(default=False)
+    # quantity_delivered = models.IntegerField(null=True)
+    # amount_paid = models.FloatField(max_length=255, null=True)
+    # balance = models.FloatField(max_length=255, null=True)
+    # discount = models.FloatField(max_length=255, null=True)
+    # confirmed = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Order {self.id} for {self.establishment.name}"

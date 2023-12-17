@@ -8,6 +8,20 @@ from .models import Invoice
 from .serializers import InvoiceSerializer
 
 
+class InvoiceByOrderAPIView(APIView):
+    serializer_class = InvoiceSerializer
+
+    def get(self, request, order_id):
+        try:
+            invoices = Invoice.objects.filter(order_id=order_id)
+            serializer = self.serializer_class(invoices, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Invoice.DoesNotExist:
+            return Response(
+                {"error": f"Invoices for order ID {order_id} not found."},
+                status=status.HTTP_404_NOT_FOUND
+            )
+        
 class InvoiceListAPIView(APIView):
    # permission_classes = [permissions.IsAuthenticated]  # Restrict access to authenticated users
     # permission_classes = [IsAdminUser]  # Restrict access to authenticated users
