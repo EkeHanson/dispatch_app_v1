@@ -24,6 +24,20 @@ class CreateAdminView(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
+class ListOwnerView(APIView):
+    # permission_classes = [IsOwner]  # You can set appropriate permissions
+
+    def get(self, request):
+        # Query for riders with user_type="rider"
+        # riders = CustomUser.objects.all()
+        owner = CustomUser.objects.filter(user_type ="owner")
+
+        # Serialize the data
+        if owner:
+            serializer = CustomUserSerializer(owner, many=True)
+            return Response(data=serializer.data, status=status.HTTP_200_OK)
+        return Response(data = "Errors", status=status.HTTP_404_NOT_FOUND)
+    
 class ListAdminView(APIView):
     # permission_classes = [IsOwner]  # You can set appropriate permissions
 
@@ -38,6 +52,35 @@ class ListAdminView(APIView):
             return Response(data=serializer.data, status=status.HTTP_200_OK)
         return Response(data = "Errors", status=status.HTTP_404_NOT_FOUND)
 
+class OwnerRetrieveUpdateDeleteView(APIView):
+    # permission_classes = [IsOwner]  # You can set appropriate permissions
+    serrializer_class = CustomUserSerializer
+    def get(self, request, user_id:int):
+
+        owner = CustomUser.objects.filter(user_type ="owner", pk=user_id)
+        serializer = CustomUserSerializer(owner, many=True)
+        return Response(data=serializer.data[0], status=status.HTTP_200_OK)
+       
+    def put(self, request: Request, user_id:int):
+        rider = CustomUser.objects.filter(user_type ="owner", pk=user_id)
+
+        serializer = self.serrializer_class(instance=rider, data=request.data)
+
+        if serializer.is_valid():
+            serializer.save()
+ 
+            response = {"message": f"Owner {request.data['username']} Updated Successfully to {serializer.data['username']}", "data":serializer.data}
+            return Response(data= response, status=status.HTTP_202_ACCEPTED)
+        
+        return Response(data= serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+
+    def delete(self, request: Request, user_id:int):
+        owner = CustomUser.objects.filter(user_type ="owner", pk=user_id)
+        owner.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
+
+
 class AdminRetrieveUpdateDeleteView(APIView):
     # permission_classes = [IsOwner]  # You can set appropriate permissions
     serrializer_class = CustomUserSerializer
@@ -48,9 +91,9 @@ class AdminRetrieveUpdateDeleteView(APIView):
         return Response(data=serializer.data[0], status=status.HTTP_200_OK)
        
     def put(self, request: Request, user_id:int):
-        rider = CustomUser.objects.filter(user_type ="admin", pk=user_id)
+        admin = CustomUser.objects.filter(user_type ="admin", pk=user_id)
 
-        serializer = self.serrializer_class(instance=rider, data=request.data)
+        serializer = self.serrializer_class(instance=admin, data=request.data)
 
         if serializer.is_valid():
             serializer.save()
@@ -62,8 +105,8 @@ class AdminRetrieveUpdateDeleteView(APIView):
 
 
     def delete(self, request: Request, user_id:int):
-        rider = CustomUser.objects.filter(user_type ="admin", pk=user_id)
-        rider.delete()
+        admin = CustomUser.objects.filter(user_type ="admin", pk=user_id)
+        admin.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 

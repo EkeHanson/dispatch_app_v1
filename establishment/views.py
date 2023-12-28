@@ -22,7 +22,7 @@ class EstablishmentListAPIView(APIView):
         return Response(serializer.data)
 
 class EstablishmentCreateAPIView(APIView):
-    #permission_classes = [permissions.IsAdminUser]  # Only admins can create Riders
+    # permission_classes = [permissions.IsAdminUser]  # Only admins can create Establishment
 
     def post(self, request):
         serializer = EstablishmentSerializer(data=request.data)
