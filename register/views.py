@@ -29,7 +29,7 @@ class ListOwnerView(APIView):
 
     def get(self, request):
         # Query for riders with user_type="rider"
-        # riders = CustomUser.objects.all()
+        # riders = CustomUser.objec nts.all()
         owner = CustomUser.objects.filter(user_type ="owner")
 
         # Serialize the data

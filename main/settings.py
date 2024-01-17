@@ -50,7 +50,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -105,7 +104,7 @@ DATABASES = {
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://dispatch_app_v1_5ecv_user:0hYb2c5IAbCG8g9De5GFMJ4zZSLq1D26@dpg-cm6mgc8cmk4c738php8g-a.oregon-postgres.render.com/dispatch_app_v1_5ecv')
+DATABASES['default'] = dj_database_url.parse('postgres://appbrew_yb96_user:oYVb3s9cTGtqcHAyGgA6cWpnHnf8I9cI@dpg-cmjugefqd2ns73bm876g-a.oregon-postgres.render.com/appbrew_yb96')
 
 # DATABASES = {
 #     'default': {
