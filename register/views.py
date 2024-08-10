@@ -15,7 +15,6 @@ class CreateAdminView(APIView):
     # permission_classes = [IsAdminUserOrIsOwner]
 
     def post(self, request):
-        print(request.data)
         serializer = CustomUserSerializer(data=request.data)
         if serializer.is_valid():
             

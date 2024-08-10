@@ -97,14 +97,25 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dispatchdb',
+        'USER': 'dispatchdb_user',
+        'PASSWORD': 'MGt35tJjWqeuZ7A4QPnfCFGQi9IYhQF8',
+        'HOST': 'dpg-cqrkpvlumphs73cm5s8g-a.oregon-postgres.render.com',
+        'PORT': '5432',
     }
 }
 
-DATABASES['default'] = dj_database_url.parse('postgres://appbrew_yb96_user:oYVb3s9cTGtqcHAyGgA6cWpnHnf8I9cI@dpg-cmjugefqd2ns73bm876g-a.oregon-postgres.render.com/appbrew_yb96')
+# DATABASES['default'] = dj_database_url.parse('postgres://appbrew_yb96_user:oYVb3s9cTGtqcHAyGgA6cWpnHnf8I9cI@dpg-cmjugefqd2ns73bm876g-a.oregon-postgres.render.com/appbrew_yb96')
 
 # DATABASES = {
 #     'default': {
