@@ -16,9 +16,9 @@ class RiderListAPIView(APIView):
 
     def get(self, request):
         riders = Rider.objects.all()
-        print(riders)
+        # print(riders)
         serializer = RiderCreateSerializer(riders, many=True)
-        print(serializer.data[0])
+        # print(serializer.data[0])
         return Response(serializer.data)
 
 class RiderCreateAPIView(APIView):
@@ -28,7 +28,7 @@ class RiderCreateAPIView(APIView):
         serializer = RiderCreateSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            print(request)
+            # print(request)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
