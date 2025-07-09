@@ -1,10 +1,5 @@
 from pathlib import Path
 from datetime import timedelta
-import pymysql
-import os
-import dj_database_url
-
-pymysql.install_as_MySQLdb()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -107,11 +102,11 @@ WSGI_APPLICATION = 'main.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'dispatchdb',
-        'USER': 'dispatchdb_user',
-        'PASSWORD': 'MGt35tJjWqeuZ7A4QPnfCFGQi9IYhQF8',
-        'HOST': 'dpg-cqrkpvlumphs73cm5s8g-a.oregon-postgres.render.com',
-        'PORT': '5432',
+        'NAME': 'test_dispatch_rider',
+        'USER': 'test_dispatch_rider_user',
+        'PASSWORD': 'M8aqPNkCkv4QLdYZmD62qKI1rh6XFAVc',
+        'HOST': 'dpg-d1n84ammcj7s73bq3dag-a.oregon-postgres.render.com',
+        'PORT': '5432',  # default PostgreSQL port
     }
 }
 
