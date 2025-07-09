@@ -1,5 +1,6 @@
 from pathlib import Path
 from datetime import timedelta
+from corsheaders.defaults import default_headers, default_methods
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -44,10 +45,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',  # MUST BE FIRST
+    'django.middleware.common.CommonMiddleware',  # Also high up
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -55,6 +56,19 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+CORS_ALLOW_HEADERS = list(default_headers) + [
+    'content-type',
+    'authorization',
+]
+
+CORS_ALLOW_METHODS = list(default_methods) + [
+    'POST',
+    'GET',
+    'OPTIONS',
+    'PUT',
+    'DELETE',
+    'PATCH',
+]
 
 
 CORS_ALLOWED_ORIGINS = [
