@@ -56,8 +56,31 @@ MIDDLEWARE = [
 ]
 
 
-# CORS_ALLOWED_ORIGINS = [' https://*']
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ORIGIN_WHITELIST = [
+    'https://crm-frontend-react.vercel.app',
+    'https://dispatch-app-v1.vercel.app/',
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'authorization',
+    'content-type',
+    'origin',
+    'x-csrftoken',
+    'x-requested-with',
+]
+# Allow credentials (e.g., cookies, Authorization headers)
+CORS_ALLOW_CREDENTIALS = True
 
 ROOT_URLCONF = 'main.urls'
 
