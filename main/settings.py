@@ -14,7 +14,7 @@ SECRET_KEY = 'django-insecure-g8#c8oz9=ust#pn2jq(05*(9-zntcmft0he&)3o*gs-a*-jgpu
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost','distachapp.onrender.com', 'dispatch-app-react-v1-ekehanson.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost','dispatch-app-v1.onrender.com', 'dispatch-app-react-v1-ekehanson.vercel.app']
 
 
 # Application definition
