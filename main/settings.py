@@ -20,6 +20,7 @@ ALLOWED_HOSTS = [
     'localhost',
     'distachapp.onrender.com',  # ✅ Correct this!
     'dispatch-app-react-v1.vercel.app',
+    'dispatch-app-v1.onrender.com',
 ]
 
 # Application definition
