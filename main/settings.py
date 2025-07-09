@@ -56,15 +56,10 @@ MIDDLEWARE = [
 ]
 
 
-# CORS_ALLOWED_ORIGINS = [
-#     'https://dispatch-app-react-v1.vercel.app',
-#     'https://crm-frontend-react.vercel.app',
-#     'https://370a-102-90-98-83.ngrok-free.app',
-# ]
 
-
-CORS_ALLOW_ALL_ORIGINS = True
-
+CORS_ALLOWED_ORIGINS = [
+    'https://dispatch-app-react-v1.vercel.app',
+]
 
 ROOT_URLCONF = 'main.urls'
 
