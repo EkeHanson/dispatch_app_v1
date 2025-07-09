@@ -58,7 +58,7 @@ MIDDLEWARE = [
 
 CORS_ORIGIN_WHITELIST = [
     'https://crm-frontend-react.vercel.app',
-    'https://dispatch-app-v1.vercel.app/',
+    'https://dispatch-app-v1.vercel.app',
 ]
 
 CORS_ALLOW_CREDENTIALS = True
